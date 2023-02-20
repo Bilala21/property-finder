@@ -3,19 +3,21 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({data}) {
-  console.log(data)
-  // const [proData, serProData] = useState([])
-  // console.log(proData)
-  // useEffect(()=>{
-  //   axios.get("https://property-finder-three.vercel.app/api/get-products").
-  //   then(data=>serProData(data.data) )
-  // },[proData])
+export default function Home() {
+  const [proData, serProData] = useState([])
+  useEffect(()=>{
+    getData()
+  },[])
+  const getData = async ()=>{
+    const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
+    const data= await res.json()
+    serProData(data.data)
 
+    console.log(proData)
+  }
   return (
     <>
       <Head>
@@ -26,23 +28,17 @@ export default function Home({data}) {
       </Head>
       <main className={styles.main}>
         <h1>Hi Bilal</h1>
-        {
-          proData.length&& proData.map(el=>{
-            return(
-              <p>{el.name}</p>
-            )
-          })
-        }
+        <button onClick={getData}>getData</button>
       </main>
     </>
   )
 }
 
 
-export async function getServerSideProps(context) {
-  const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
-  const data = res.json()
-  return {
-    props: {data:data}, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps(context) {
+//   const res = await fetch("https://property-finder-three.vercel.app/api/hello")
+//   const data = res.json()
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
