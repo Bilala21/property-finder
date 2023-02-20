@@ -9,7 +9,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const getData = async ()=>{
     const res = await fetch("https://property-finder-three.vercel.app/api/hello")
-    const data = res.json()
   }
   return (
     <>
