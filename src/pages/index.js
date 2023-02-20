@@ -9,8 +9,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [proData, serProData] = useState([])
+  console.log(proData)
   useEffect(()=>{
-    axios.get("https://property-finder-three.vercel.app/api/get-products")
+    axios.get("https://property-finder-three.vercel.app/api/get-products").
+    then(data=>serProData(data.data) )
   },[proData])
 
   return (
