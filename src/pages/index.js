@@ -24,7 +24,7 @@ export default function Home() {
 }
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const res = await fetch("http://localhost:3000/api/hello")
   const data = res.json()
   return {
