@@ -8,21 +8,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [proData, serProData] = useState([])
-  useEffect(() => {
-    getData()
-    console.log("fecthing")
-  }, [])
-  const getData = async () => {
-    // const res = await fetch("https://property-finder-three.vercel.app/api/hello")
-    // const data= await res.json()
-    // serProData(data.data)
-  }
-  const id =setTimeout(async () => {
-    const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
+  const id = setTimeout(async () => {
+    const res = await fetch("https://property-finder-three.vercel.app/api/get-products", {
+      method: "GET"
+    })
     const data = await res.json()
     serProData(data.data)
   }, 5000)
-  if(proData.length){
+  if (proData.length) {
     clearTimeout(id)
   }
   return (
@@ -34,8 +27,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hi Bilal</h1>
-        <button onClick={getData}>getData</button>
       </main>
     </>
   )
