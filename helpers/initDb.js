@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 function initDb() {
-    console.log(process.env.MONGODB_URI)
+    console.log("mongodb+srv://bilal:z2Bfl9YSy0k3ODYl@cluster0.bqdbvzr.mongodb.net/property?retryWrites=true&w=majority")
     if (mongoose.connections[0].readyState) {
         console.log("already connected")
         return
     }
-    mongoose.connect(process.env.MONGODB_URI, {
+    mongoose.connect("mongodb+srv://bilal:z2Bfl9YSy0k3ODYl@cluster0.bqdbvzr.mongodb.net/property?retryWrites=true&w=majority", {
         useNewUrlParser: true
     })
     mongoose.connection.on("connected", () => {
