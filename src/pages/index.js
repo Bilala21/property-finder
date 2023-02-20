@@ -7,7 +7,10 @@ import { useEffect } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-
+  const getData = async ()=>{
+    const res = await fetch("https://property-finder-three.vercel.app/api/hello")
+    const data = res.json()
+  }
   return (
     <>
       <Head>
@@ -18,16 +21,17 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hi Bilal</h1>
+        <button onClick={getData}>getData</button>
       </main>
     </>
   )
 }
 
 
-export async function getServerSideProps(context) {
-  const res = await fetch("https://property-finder-three.vercel.app/api/hello")
-  const data = res.json()
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps(context) {
+//   const res = await fetch("https://property-finder-three.vercel.app/api/hello")
+//   const data = res.json()
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
