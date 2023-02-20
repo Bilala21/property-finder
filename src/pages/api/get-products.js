@@ -2,7 +2,8 @@
 
 import Product from "models/Product"
 
-export default function handler(req, res) {
-  const products = await Product.find({}).lean()
+export default function  handler(req, res) {
+  const res = Product.find({}).lean()
+  const products = res.json();
   res.status(200).json({products })
 }
