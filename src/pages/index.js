@@ -21,7 +21,7 @@ export default function Home() {
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data = await res.json()
     serProData(data.data)
-  }, 200)
+  }, 5000)
   if(proData.length){
     clearTimeout(id)
   }
