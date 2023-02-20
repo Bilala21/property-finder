@@ -1,12 +1,12 @@
 import initDb from "helpers/initDb"
-import MyPropety from "models/MyPropety"
+import Category from "models/Category";
 
 
 
 initDb()
 
 export default async (req, res)=> {
-  const data = await MyPropety.find({});
+  const data = await Category.find({});
   res.status(200).json({ name: 'John Doe',data})
 }
 
