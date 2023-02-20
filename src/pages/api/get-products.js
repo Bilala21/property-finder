@@ -1,13 +1,10 @@
 import initDb from "helpers/initDb"
-import Category from "models/Category"
-import PropertyForSale from "models/PropertyForSale"
-
 initDb()
+import Product from "models/Product"
 
-export default async (req, res) {
-  const categories = await Category.find({}).lean()
-  // const sale_properties = PropertyForSale.find({}).lean()
-  // const data={categories,sale_properties}
 
-  res.status(200).json({categories})
+export default function  handler(req, res) {
+  const resdata = Product.find({}).lean()
+
+  res.status(200).json({resdata })
 }
