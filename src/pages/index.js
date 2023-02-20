@@ -7,13 +7,14 @@ import axios from 'axios'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
-  const [proData, serProData] = useState([])
-  console.log(proData)
-  useEffect(()=>{
-    axios.get("https://property-finder-three.vercel.app/api/get-products").
-    then(data=>serProData(data.data) )
-  },[proData])
+export default function Home({data}) {
+  console.log(data)
+  // const [proData, serProData] = useState([])
+  // console.log(proData)
+  // useEffect(()=>{
+  //   axios.get("https://property-finder-three.vercel.app/api/get-products").
+  //   then(data=>serProData(data.data) )
+  // },[proData])
 
   return (
     <>
@@ -38,10 +39,10 @@ export default function Home() {
 }
 
 
-// export async function getServerSideProps(context) {
-//   const res = await fetch("https://property-finder-three.vercel.app/api/hello")
-//   const data = res.json()
-//   return {
-//     props: {}, // will be passed to the page component as props
-//   }
-// }
+export async function getServerSideProps(context) {
+  const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
+  const data = res.json()
+  return {
+    props: {data:data}, // will be passed to the page component as props
+  }
+}
