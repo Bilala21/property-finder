@@ -1,5 +1,6 @@
 import initDb from "helpers/initDb"
 import Category from "models/Category";
+import PropertyForSale from "models/PropertyForSale";
 
 
 
@@ -7,7 +8,8 @@ initDb()
 
 export default async (req, res)=> {
   const data = await Category.find({});
-  res.status(200).json({ name: 'John Doe',data})
+  const saleProducts = await PropertyForSale.find({});
+  res.status(200).json({ name: 'John Doe',data:{data,saleProducts}})
 }
 
 
