@@ -8,14 +8,20 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [proData, serProData] = useState([])
-  useEffect(()=>{
-    getData()
-    console.log("fecthing")
-  },[])
-  const getData = async ()=>{
+  // useEffect(()=>{
+  //   getData()
+  //   console.log("fecthing")
+  // },[])
+
+  setTimeout(async ()=>{
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data= await res.json()
     serProData(data.data)
+  },3000)
+  const getData = async ()=>{
+    // const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
+    // const data= await res.json()
+    // serProData(data.data)
   }
   return (
     <>
@@ -32,6 +38,7 @@ export default function Home() {
     </>
   )
 }
+
 
 
 // export async function getServerSideProps(context) {

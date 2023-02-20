@@ -1,11 +1,10 @@
-import initDb from "helpers/initDb"
-import MyPropety from "models/MyPropety"
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import Product from "models/Product"
 
 
+export default function  handler(req, res) {
+  const resdata = Product.find({}).lean()
 
-initDb()
-
-export default async (req, res)=> {
-  const data = await MyPropety.find({});
-  res.status(200).json({ name: 'John Doe',data})
+  res.status(200).json({products })
 }

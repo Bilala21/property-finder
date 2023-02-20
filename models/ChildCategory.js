@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Category = require('./Category')
 
 const childCategorySchema = new mongoose.Schema({
-    parent_category: {
+    category_id: {
         type: mongoose.Schema.Types.ObjectId,
         required:false,
         ref: Category
@@ -15,7 +15,7 @@ const childCategorySchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    sub_category: [new mongoose.Schema(
+    sub_category_types: [new mongoose.Schema(
         {
             parent_type_id: {
                 type: mongoose.Schema.Types.ObjectId,

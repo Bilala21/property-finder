@@ -22,8 +22,9 @@ app.use(express.json())
 
 app.use(cookieParser())
 
-app.use('/category', require('./routes/propertyRoutes'))
+// app.use('/category', require('./routes/propertyRoutes'))
 app.get("/",(req,res)=>{
+    return res.json(12)
     const property =Product.find({}).lean();
     return res.json(property)
 })
