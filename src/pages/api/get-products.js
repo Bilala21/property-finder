@@ -4,7 +4,7 @@ import PropertyForSale from "models/PropertyForSale"
 
 initDb()
 
-export default function  handler(req, res) {
+export default async (req, res) {
   const categories = await Category.find({}).lean()
   // const sale_properties = PropertyForSale.find({}).lean()
   // const data={categories,sale_properties}
