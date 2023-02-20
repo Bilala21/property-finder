@@ -12,10 +12,7 @@ export default function Home() {
   useEffect(()=>{
     axios.get("https://property-finder-three.vercel.app/api/get-products")
   },[proData])
-  const getData = async ()=>{
-    console.log(12)
-    // const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
-  }
+
   return (
     <>
       <Head>
@@ -26,7 +23,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hi Bilal</h1>
-        <button onClick={getData}>getData</button>
+        {
+          proData.length&& proData.map(el=>{
+            return(
+              <p>{el.name}</p>
+            )
+          })
+        }
       </main>
     </>
   )
