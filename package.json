@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
