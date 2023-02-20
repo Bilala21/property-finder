@@ -24,10 +24,10 @@ export default function Home() {
 }
 
 
-export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:3000/api/hello")
-  const data = res.json()
-  return {
-    props: {}, // will be passed to the page component as props
-  }
-}
+// export async function getServerSideProps(context) {
+//   const res = await fetch("http://localhost:3000/api/hello")
+//   const data = res.json()
+//   return {
+//     props: {}, // will be passed to the page component as props
+//   }
+// }
