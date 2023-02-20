@@ -7,10 +7,7 @@ import { useEffect } from 'react'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  useEffect(()=>{
-    fetch("https://property-finder-three.vercel.app/").then(res=> res.json())
-    .then(data=> console.log(data))
-  },[])
+
   return (
     <>
       <Head>
@@ -24,4 +21,13 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+
+export async function getStaticProps(context) {
+  const res = await fetch("http://localhost:3000/api/hello")
+  const data = res.json()
+  return {
+    props: {}, // will be passed to the page component as props
+  }
 }
