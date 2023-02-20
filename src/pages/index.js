@@ -18,7 +18,7 @@ export default function Home() {
     // serProData(data.data)
   }
   const id =setTimeout(async () => {
-    const res = await fetch("https://property-finder-three.vercel.app/api/hello")
+    const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data = await res.json()
     serProData(data.data)
   }, 200)
