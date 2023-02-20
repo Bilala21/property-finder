@@ -22,8 +22,11 @@ app.use(express.json())
 
 app.use(cookieParser())
 
-// app.use('/api/v1/category', require('./routes/propertyRoutes'))
-
+app.use('/category', require('./routes/propertyRoutes'))
+app.get("/",(req,res)=>{
+    const property =Product.find({}).lean();
+    return res.json(property)
+})
 app.use(errorHandler)
 
 mongoose.connection.once('open', () => {
