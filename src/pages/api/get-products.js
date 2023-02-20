@@ -6,8 +6,8 @@ initDb()
 
 export default function  handler(req, res) {
   const categories = Category.find({}).lean()
-  const sale_properties = PropertyForSale.find({}).lean()
-  const data={categories,sale_properties}
+  // const sale_properties = PropertyForSale.find({}).lean()
+  // const data={categories,sale_properties}
 
-  res.status(200).json({status:200,data})
+  res.status(200).json({categories})
 }
