@@ -14,7 +14,10 @@ export default function Home() {
     serProData(data.data)
 
   }
-      console.log(proData.data)
+      
+  if(proData.length > 0)
+  {
+    console.log(proData.data)
   return (
     <>
       <Head>
@@ -36,6 +39,7 @@ export default function Home() {
       </main>
     </>
   )
+}
 }
 
 
