@@ -8,13 +8,10 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   const [proData, serProData] = useState([])
-  useEffect(()=>{
-    getData()
-  },[])
   const getData = async ()=>{
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data= await res.json()
-    serProData(data.data)
+    serProData(data.data.data)
   }
   return (
     <>
@@ -26,6 +23,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hi Bilal</h1>
+{}
         <button onClick={getData}>getData</button>
       </main>
     </>
