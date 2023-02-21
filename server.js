@@ -24,7 +24,7 @@ app.use(express.json())
 app.use(cookieParser())
 
 // app.use('/category', require('./routes/propertyRoutes'))
-app.get("api/get-product",(req,res)=>{
+app.get("../../find-prod",(req,res)=>{
     const property =Category.find({}).lean();
     return res.json(property)
 })
