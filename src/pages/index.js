@@ -11,7 +11,7 @@ export default function Home() {
   const getData = async ()=>{
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data= await res.json()
-    serProData(data.data)
+    serProData(data.data.categories)
 
   }
       
@@ -28,7 +28,7 @@ export default function Home() {
         <h1>Hi Bilal Ali 123</h1>
       {
         proData.length> 0 &&
-          proData?.categories.map(cate=>{
+          proData.map(cate=>{
             return(
               <p key={cate._id}>{cate.name}</p>
             )
