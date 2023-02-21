@@ -9,6 +9,7 @@ const cors = require('cors')
 const corsOptions = require('./config/corsOptions')
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose')
+const Category = require('models/Category')
 
 mongoose.set('strictQuery', false)
 const PORT = process.env.PORT || 3500
@@ -23,9 +24,8 @@ app.use(express.json())
 app.use(cookieParser())
 
 // app.use('/category', require('./routes/propertyRoutes'))
-app.get("/",(req,res)=>{
-    return res.json(12)
-    const property =Product.find({}).lean();
+app.get("api/get-product",(req,res)=>{
+    const property =Category.find({}).lean();
     return res.json(property)
 })
 app.use(errorHandler)
