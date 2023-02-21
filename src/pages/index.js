@@ -12,8 +12,9 @@ export default function Home() {
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data= await res.json()
     serProData(data.data)
-    console.log(data.data)
+
   }
+      console.log(proData.data)
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hi Bilal</h1>
+        <h1>Hi Bilal Ali</h1>
       {
           proData.categories.map(cate=>{
             return(
