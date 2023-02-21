@@ -15,7 +15,7 @@ export default function Home() {
 
   }
       
-
+console.log(proData)
   return (
     <>
       <Head>
