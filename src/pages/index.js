@@ -11,7 +11,8 @@ export default function Home() {
   const getData = async ()=>{
     const res = await fetch("https://property-finder-three.vercel.app/api/get-products")
     const data= await res.json()
-    serProData(data.data.data)
+    serProData(data.data)
+    console.log(data.data)
   }
   return (
     <>
