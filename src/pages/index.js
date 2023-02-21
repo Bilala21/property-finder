@@ -24,7 +24,13 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>Hi Bilal</h1>
-{}
+      {
+          proData.categories.map(cate=>{
+            return(
+              <p key={cate._id}>{cate.name}</p>
+            )
+          })
+        }
         <button onClick={getData}>getData</button>
       </main>
     </>
