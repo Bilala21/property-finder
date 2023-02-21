@@ -15,9 +15,7 @@ export default function Home() {
 
   }
       
-  if(proData.length > 0)
-  {
-    console.log(proData.data)
+
   return (
     <>
       <Head>
@@ -29,7 +27,8 @@ export default function Home() {
       <main className={styles.main}>
         <h1>Hi Bilal Ali 123</h1>
       {
-          proData.categories.map(cate=>{
+        proData.length> 0 &&
+          proData?.categories.map(cate=>{
             return(
               <p key={cate._id}>{cate.name}</p>
             )
@@ -39,7 +38,7 @@ export default function Home() {
       </main>
     </>
   )
-}
+
 }
 
 
