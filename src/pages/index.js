@@ -24,7 +24,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Hi Bilal Ali</h1>
+        <h1>Hi Bilal Ali 123</h1>
       {
           proData.categories.map(cate=>{
             return(
